@@ -18,26 +18,67 @@
     https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_output-->
 
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
-Nombre:
-Apellido:
-Sexo: Masculino Femenino
-Edad:
-Email:
-Usuario:
-Password:
-Confirmar Password:
+<form name="formularioInscripcion" id="formulario">
+    <p>
+        Nombre:
+        <input type="text" name="nombre" id="nombre" size="40" placeholder="Ingrese Nombre" maxlength="40">
+    </p>
+    <p>
+        Apellido:
+        <input type="text" name="apellido" id="apellido" size="40" placeholder="Ingrese su Apellido" maxlength="40">
+    </p>
+    <p>
+        Sexo: <br>
+        <input type="radio" name="genero" value="Masculino">Masculino
+        <input type="radio" name="genero" value="Femenino">Femenino
+        <input type="radio" name="genero" value="noRevelarlo">Prefiero no Revelarlo
+    </p>
+    <p>
+        Edad: <input type="number" name="edad" id="edad" placeholder="Edad" maxlength="3" min="0">
+    </p>
+    <p>
+        Email: <input type="email" name="email" id="email" size="40" placeholder="Ingrese su Email" maxlength="40">
+    </p>
+    <p>
+        Usuario: <input type="text" name="usuario" id="usuario" size="40" placeholder="Ingrese Nombre de Usuario" maxlength="40">
+    </p>
+    <p>
+        Password: <input type="password" name="password" id="password" size="40" placeholder="Ingrese su Password" maxlength="40">
+    </p>
+    <p>
+        Confirmar Password: <input type="password" name="confirmPassword" id="confirmPassword" size="40" placeholder="Repita su Contraseña" maxlength="40">
+    </p>
+    <p>
+        Tipo de servicio:
+        <select name="tipoServicio" id="tipoServicio">
+            <option value="Free">Free</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+        </select>
+    </p>
+    <p>
+        Tema:
+        <input type="checkbox" name="politica" id="chkPolitica">
+        Política
+        <input type="checkbox" name="negocios" id="chkNegocios">
+        Negocios
+        <input type="checkbox" name="tecnologia" id="chkTecnologia">
+        Tecnología
+        <input type="checkbox" name="salud" id="chkSalud">
+        Salud
+    </p>
+    <p>
+        Agregue un comentario:
+        <textarea name="comentario" id="comentario" rows="5" cols="40">
+            Ingrese un comentario
+        </textarea>
+    </p>
+    <p>
+        <button type="button">
+            Boton de Enviar
+        </button>
+    </p>
 
-Tipo de servicio: Free / Standard / Premium
-Tema:
-Política
-Negocios
-Tecnología
-Salud
-
-Agregue un comentario:
-
-Boton de Enviar
-
-
+</form>
 </body>
 </html>
