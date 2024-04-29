@@ -1,0 +1,25 @@
+div{
+    border: 2px solid #5779b7;
+    padding: 15px;
+    margin: 10px 40px 5px;
+    background-color: rgba(139, 139, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: -2px -4px #000000;
+}
+
+#logo{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 50%;
+}
+
+.cv{
+    text-align: center;
+    background: linear-gradient(to right, #463ade, rgba(193, 190, 241, 0.43));
+}
+
+h1, h2, h3, h4{
+    font-family: "Bebas Neue", sans-serif;
+    text-shadow: 4px 10px #463ade;
+}
