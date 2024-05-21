@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <title>Ejercicio Columnas</title>
     <style>
-        a:link, a:visited{
+        /*a:link, a:visited{
             color: #4CAF50;
+        }*/
+        a{
+            transition: color 1s linear;
+            color: #feab5a;
         }
         a:hover{
             font-size: 1.4em;
+            color: #4CAF50;
         }
-        a:active{
+        /*a:active{
             font-weight: bold;
-        }
+        }*/
+
+
 
         header:hover{
             background-color: #feab5a;
@@ -20,14 +27,14 @@
 
         .columna1{
             float: left;
-            width: 50%;
-            padding: 50px;
+            width: 45%;
+            margin: 0px 15px;
         }
 
         .columna2{
             float: right;
-            width: 50%;
-            padding: 50px;
+            width: 45%;
+            margin: 0px 15px;
         }
     </style>
 </head>
@@ -71,7 +78,7 @@
                 de la tesis.
             </p>
         </div>
-        <div class="columna2">
+        <div class="grid-item columna2">
             <p>
                 Gracias a una profunda investigación comercial, sumada a una simulación realizada por un programa llamado
                 anylogic, consiguieron localizar de manera estratégica 19 estaciones con 280 bicicletas, en Nueva Córdoba y

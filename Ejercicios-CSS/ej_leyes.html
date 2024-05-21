@@ -3,6 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Ley 10.208 - Política Ambiental Provincial</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            color: red;
+        }
+        a {
+            transition: color 0.8s linear 0.2s;
+        }
+
+
+        div.cuadrado1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+            transition: width 2s;
+        }
+
+        div.cuadrado1:hover {
+            width: 300px;
+        }
+
+        div.cuadrado2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+            transition: width 2s, height 2s, transform 2s;
+        }
+
+        div.cuadrado2:hover {
+            width: 200px;
+            height: 200px;
+            -webkit-transform: rotate(180deg); /* Safari */
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 <body>
 <h1>La Legislatura de la Provincia de Córdoba</h1>
@@ -12,7 +52,14 @@
 <ol class="titulo">
     <li>Capítulo</li>
 </ol>
+<a href="ej_columnas.html">EJEMPLO DEL LINK</a>
+<div class="cuadrado1">
 
+</div>
+<br>
+<div class="cuadrado2">
+
+</div>
 <h3>Principios Generales</h3>
 <p><span>Artículo 1º.-</span> La  presente  Ley  determina  la  política  ambiental  provincial  y,  en
     ejercicio de las competencias establecidas en el artículo 41 de la
