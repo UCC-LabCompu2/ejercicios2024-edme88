@@ -5,7 +5,7 @@
  * @param {number} valor - Recibe el valor ingresado en el input
  */
 function convertirUnidades(nombre, valor){
-
+    //TODO: Debería admitir números con coma
     if(isNaN(valor)){
         alert("El valor ingresado no es correcto");
         document.getElementById("metro").value = "";
@@ -24,5 +24,26 @@ function convertirUnidades(nombre, valor){
         //TAREA
     }else if(nombre==="yarda"){
         //TAREA
+    }
+}
+
+/**
+ * Permite convertir grados a radianes y viceversa
+ * @method convertirGR
+ * @param {String} id - grados - radianes
+ */
+function convertirGR(id){
+    let grad, rad;
+
+    //TODO: Agregar mensaje de error cuando se ingresan letras
+    //TODO: Debería admitir números con coma
+    if(id==="grados"){
+        grad = document.getElementById("grados").value;
+        rad = grad*Math.PI/180;
+        document.getElementById("radianes").value = rad;
+    }else if(id==="radianes"){
+        rad = document.getElementById("radianes").value;
+        grad = rad*180/Math.PI;
+        document.getElementById("grados").value = grad;
     }
 }
