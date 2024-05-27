@@ -70,3 +70,62 @@ function cargarLS(){
     const unidad = localStorage.getItem("unidadLS");
     document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
+
+function dibujarCirculoCuadrado(){
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const xMax = canvas.width;
+    const yMax = canvas.height;
+    ctx.fillStyle = "#ff0bb2";
+    const lado = 100;
+    const margen = 10;
+    ctx.fillRect(0+margen,yMax-lado-margen , lado, lado);
+
+    ctx.fillStyle = "rgba(76,175,80,0.99)";
+    ctx.arc(xMax/2, yMax/2, 50, 0, 2*Math.PI);
+    ctx.fill();
+
+}
+
+/**
+ * Carga la función de dibujar en el lienzo canvas cuando
+ * el usuario mueve el mouse
+ * @method cargarListeners
+ */
+function cargarListeners(){
+    document.getElementById("lienzo").addEventListener("mousemove",dibujar);
+}
+
+var bandera;
+
+/**
+ * Dibuja una línea en la posicion que determino el usuario con el mouse
+ * @method dibujar
+ * @param {Event} event - Evento del movimiento del mouse
+ */
+function dibujar(event){
+    const canvas = document.getElementById("lienzo");
+    const ctx = canvas.getContext("2d");
+
+    let posX = event.clientX;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function (){bandera = true};
+    canvas.onmouseup = function (){bandera = false};
+
+    ctx.fillStyle = "#0b34ff";
+    if(bandera){
+        ctx.fillRect(posX, posY, 5, 5);
+    }
+}
+
+/**
+ * Borra el contenido del canvas
+ * @method limpiarCanvas
+ */
+function limpiarCanvas(){
+    let canvas = document.getElementById("lienzo");
+    canvas.width = canvas.width;
+}
