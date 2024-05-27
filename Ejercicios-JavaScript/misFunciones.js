@@ -47,3 +47,26 @@ function convertirGR(id){
         document.getElementById("grados").value = grad;
     }
 }
+
+/**
+ * Permite guardar distancia y unidad en el localStorage
+ * @method guardarLS
+ */
+function guardarLS(){
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementById("unidades").value;
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadLS", unidad);
+    window.open("2_web.html");
+}
+
+/**
+ * Toma los valores de distancia y unidad del localStorage
+ * para mostrarlos en un input
+ * @method cargarLS
+ */
+function cargarLS(){
+    const distancia = localStorage.getItem("distanciaLS");
+    const unidad = localStorage.getItem("unidadLS");
+    document.getElementById("dist").value = `${distancia} ${unidad}`;
+}
