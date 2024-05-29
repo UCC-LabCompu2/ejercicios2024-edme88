@@ -129,3 +129,48 @@ function limpiarCanvas(){
     let canvas = document.getElementById("lienzo");
     canvas.width = canvas.width;
 }
+
+function dibujarCuadriculado(){
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const anchoMax = canvas.width;
+    const alturaMax = canvas.height;
+    const paso = 20;
+
+    ctx.strokeStyle = "rgba(165,217,200,0.73)";
+    //Dibujo de Lineas Horizontales
+    for(let i = paso; i<alturaMax; ){
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax,i);
+        ctx.stroke();
+        ctx.closePath();
+        i = i+paso;
+    }
+
+    //Dibujo de Lineas Verticales
+    for(let i = paso; i<anchoMax; ){
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i,alturaMax);
+        ctx.stroke();
+        ctx.closePath();
+        i = i+paso;
+    }
+
+    ctx.strokeStyle = "#ef0d0d";
+    //Dibujar Eje X
+    ctx.beginPath();
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax,alturaMax/2);
+    ctx.stroke();
+    ctx.closePath();
+
+    //Dibujar Eje Y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2,alturaMax);
+    ctx.stroke();
+    ctx.closePath();
+}
