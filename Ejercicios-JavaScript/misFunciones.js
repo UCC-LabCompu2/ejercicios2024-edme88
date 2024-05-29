@@ -4,27 +4,42 @@
  * @param {String} nombre - Recibe: metro, pie, pulgada, yarda
  * @param {number} valor - Recibe el valor ingresado en el input
  */
-function convertirUnidades(nombre, valor){
+let convertirUnidades = (nombre, valor) => {
     //TODO: Debería admitir números con coma
+    let metro, pulgada, pie, yarda;
+
     if(isNaN(valor)){
         alert("El valor ingresado no es correcto");
-        document.getElementById("metro").value = "";
-        document.getElementById("pulgada").value = "";
-        document.getElementById("pie").value = "";
-        document.getElementById("yarda").value = "";
+        metro = "";
+        pulgada = "";
+        pie = "";
+        yarda = "";
     }else if(nombre==="metro"){
-        document.getElementById("pulgada").value = valor*39.3701;
-        document.getElementById("pie").value = valor*3.28084;
-        document.getElementById("yarda").value = valor*1.09361;
+        metro = valor;
+        pulgada = valor*39.3701;
+        pie = valor*3.28084;
+        yarda = valor*1.09361;
     }else if(nombre==="pulgada"){
-        document.getElementById("metro").value = valor*0.0254;
-        document.getElementById("pie").value = valor*0.0833333;
-        document.getElementById("yarda").value = valor*0.0277778;
+        pulgada = valor;
+        metro = valor*0.0254;
+        pie = valor*0.0833333;
+        yarda = valor*0.0277778;
     }else if(nombre==="pie"){
-        //TAREA
+        pie = valor;
+        pulgada = valor*39.3701;
+        metro = valor*3.28084;
+        yarda = valor*1.09361;
     }else if(nombre==="yarda"){
-        //TAREA
+        yarda = valor;
+        pulgada = valor*39.3701;
+        pie = valor*3.28084;
+        metro = valor*1.09361;
     }
+
+    document.getElementById("metro").value = metro;
+    document.getElementById("pulgada").value = pulgada;
+    document.getElementById("pie").value = pie;
+    document.getElementById("yarda").value = yarda;
 }
 
 /**
