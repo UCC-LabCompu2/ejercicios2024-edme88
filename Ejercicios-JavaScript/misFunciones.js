@@ -189,3 +189,27 @@ function dibujarCuadriculado(){
     ctx.stroke();
     ctx.closePath();
 }
+
+/**
+ * Permite mostrar u ocultar un div en base a la selección de un radio button
+ * @method mostrar_ocultar
+ * @param {String} valor - Contiene: val_mostrar, val_ocultar
+ */
+let mostrar_ocultar = (valor) => {
+    if(valor==="val_mostrar"){
+        document.getElementsByName("unDiv")[0].style.display = 'block';
+    }else if(valor==="val_ocultar"){
+        document.getElementsByName("unDiv")[0].style.display = 'none';
+    }
+}
+
+/**
+ * Permite sumar 2 números ingresados por el usuario
+ * @method suma
+ */
+let suma = () => {
+    const s1 = Number(document.getElementById("nums1").value);
+    const s2 = document.getElementById("nums2").value;
+
+    document.getElementById("totalS").value = s1+Number(s2);
+}
