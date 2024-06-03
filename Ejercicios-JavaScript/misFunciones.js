@@ -8,6 +8,10 @@ let convertirUnidades = (nombre, valor) => {
     //TODO: Debería admitir números con coma
     let metro, pulgada, pie, yarda;
 
+    if(valor.includes(",")){
+        valor = valor.replace(",",".");
+    }
+
     if(isNaN(valor)){
         alert("El valor ingresado no es correcto");
         metro = "";
@@ -36,10 +40,10 @@ let convertirUnidades = (nombre, valor) => {
         metro = valor*1.09361;
     }
 
-    document.getElementById("metro").value = metro;
-    document.getElementById("pulgada").value = pulgada;
-    document.getElementById("pie").value = pie;
-    document.getElementById("yarda").value = yarda;
+    document.getElementById("metro").value = Math.round(metro*100)/100;
+    document.getElementById("pulgada").value = Math.round(pulgada*100)/100;
+    document.getElementById("pie").value = pie.toFixed(2);
+    document.getElementById("yarda").value = yarda.toFixed(2);
 }
 
 /**
@@ -211,5 +215,54 @@ let suma = () => {
     const s1 = Number(document.getElementById("nums1").value);
     const s2 = document.getElementById("nums2").value;
 
-    document.getElementById("totalS").value = s1+Number(s2);
+    document.getElementById("totalS").innerHTML = s1+Number(s2);
+}
+
+//TODO: TAREA: resta, multiplicación y División
+
+function pasarValores(){
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementById("unidades").value;
+
+    //window.open("segundaWeb.html#"+distancia+"#"+unidad);
+    window.open(`segundaWeb.html#${distancia}#${unidad}`);
+}
+
+function tomarValores(){
+    let urlCompleta = window.location.href;
+
+    urlCompleta = urlCompleta.split("#");
+    const dist = urlCompleta[1];
+    const unidad = urlCompleta[2];
+    document.getElementById("dist").value = `${dist} ${unidad}`;
+}
+
+function guardarLS(){
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementById("unidades").value;
+
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadLS", unidad);
+    window.open("2_web.html");
+}
+
+function cargarLS(){
+    const dist = localStorage.getItem("distanciaLS");
+    const unid = localStorage.getItem("unidadLS");
+
+    document.getElementById("dist").value = `${dist} ${unid}`;
+}
+
+function dibujarImagen(posX, posY){
+    const canvas= document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    console.log(posX, posY);
+
+    canvas.width = canvas.width;
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function (){
+        ctx.drawImage(img, posX, posY);
+    }
 }
