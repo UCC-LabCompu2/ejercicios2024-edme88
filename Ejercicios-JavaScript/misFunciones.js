@@ -192,6 +192,28 @@ function dibujarCuadriculado(){
     ctx.lineTo(anchoMax/2,alturaMax);
     ctx.stroke();
     ctx.closePath();
+
+    //Escribir en el EJe X
+    //TODO: Calcular numX en base al ancho del canvas y el paso
+    //TODO: Centrar el número con el eje
+    let numX=-20;
+    ctx.font = "10pt Verdana";
+    ctx.fillStyle = "blue";
+    for(let i=0;i<anchoMax;){
+        ctx.fillText(String(numX), i, alturaMax/2);
+        i += paso;
+        numX++;
+    }
+
+    //Escribir en el EjeY
+    //TODO: Calcular numY en base al alto del canvas y el paso
+    //TODO: Centrar el número con el eje
+    let numY = -15;
+    for(let i = 0; i<alturaMax;){
+        ctx.fillText(String(numY), anchoMax/2, i);
+        i += paso;
+        numY++;
+    }
 }
 
 /**
@@ -253,16 +275,84 @@ function cargarLS(){
     document.getElementById("dist").value = `${dist} ${unid}`;
 }
 
-function dibujarImagen(posX, posY){
+let dibujarImagen = (posX, posY) => {
     const canvas= document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
-
     console.log(posX, posY);
-
     canvas.width = canvas.width;
     const img = new Image();
     img.src = "images/auto.png";
-    img.onload = function (){
-        ctx.drawImage(img, posX, posY);
+    console.log(algo)
+    if(posX<0 || posY<0){
+        mostrarDialog();
+    }else if(posX>canvas.width || posY>canvas.height){
+        mostrarDialog();
+    }else{
+        img.onload = function (){
+            ctx.drawImage(img, posX, posY);
+        }
     }
+}
+
+x = 0;
+function animarAuto(){
+    const canvas= document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+    x += 2;
+    if(x>canvas.width){
+        x = 0;
+    }
+}
+
+var animarId;
+function animarAutoNuevo(){
+    const canvas= document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.src = "images/auto.png";
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+        animarID = requestAnimationFrame(animarAutoNuevo);
+    }
+    x += 2;
+    if(x>canvas.width){
+        x = 0;
+    }
+}
+
+function animarNuevo(){
+    setTimeout(cancelarNuevaAnimacion, 6000);
+    requestAnimationFrame(animarAutoNuevo);
+}
+
+function cancelarNuevaAnimacion(){
+    console.log(`LLamo cancelar Nueva animacion`);
+    cancelAnimationFrame(animarId);
+}
+
+var intervalId;
+function comenzarAnimacion(){
+    intervalId = setInterval(animarAuto, 15);
+    setTimeout(detenerAuto, 6000);
+}
+
+function detenerAuto(){
+    clearInterval(intervalId);
+}
+
+function mostrarDialog(){
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+function cerrarDialog(){
+    const dialog = document.getElementById("myDialog");
+    dialog.close();
 }
